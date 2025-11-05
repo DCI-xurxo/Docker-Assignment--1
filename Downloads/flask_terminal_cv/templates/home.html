@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Terminal{% endblock %}
+{% block content %}
+<div class="terminal page-terminal">
+    <div class="terminal-header">
+        <div class="button red"></div>
+        <div class="button yellow"></div>
+        <div class="button green"></div>
+    </div>
+    <div class="terminal-body">
+        <p data-terminal-typed>
+Welcome to terminal mode.
+Available commands:
+- about
+- projects
+- contact
+
+Type 'help' for more information
+        </p>
+    </div>
+</div>
+{% endblock %}

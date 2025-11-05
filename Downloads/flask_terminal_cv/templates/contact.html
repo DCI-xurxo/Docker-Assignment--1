@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="terminal page-terminal interactive-terminal">
+    <div class="terminal-header">
+        <div class="button red"></div>
+        <div class="button yellow"></div>
+        <div class="button green"></div>
+        <span class="terminal-title">xurxox@cloud-terminal:~$</span>
+    </div>
+    <div class="terminal-body" id="terminal-output">
+        <div class="terminal-line">
+            <span class="prompt">xurxox@cloud-terminal:~$</span> <span class="command">pwd</span>
+        </div>
+        <div class="output">/home/xurxox/contact</div>
+        
+        <div class="terminal-line">
+            <span class="prompt">xurxox@cloud-terminal:~$</span> <span class="command">ls -la</span>
+        </div>
+        <div class="output">
+drwxr-xr-x 2 xurxox xurxox 4096 Nov  5 14:30 .
+drwxr-xr-x 8 xurxox xurxox 4096 Nov  5 14:30 ..
+-rw-r--r-- 1 xurxox xurxox  220 Nov  5 14:30 email.sh
+-rw-r--r-- 1 xurxox xurxox  807 Nov  5 14:30 info.txt
+-rwxr-xr-x 1 xurxox xurxox 1024 Nov  5 14:30 sendmail.py
+        </div>
+
+        <div class="terminal-line">
+            <span class="prompt">xurxox@cloud-terminal:~$</span> <span class="command">cat info.txt</span>
+        </div>
+        <div class="output info-box">
+╔════════════════════════════════════════════════════════════╗
+║              📧 CONTACT INFORMATION                        ║
+╠════════════════════════════════════════════════════════════╣
+║  Email:     xurxox@example.com                            ║
+║  GitHub:    github.com/xurxox                             ║
+║  LinkedIn:  linkedin.com/in/xurxox                        ║
+║  Location:  Vigo, Galicia, Spain                          ║
+╚════════════════════════════════════════════════════════════╝
+
+💡 Tip: Use the 'mail' command to send me a message
+        </div>
+
+        <div class="terminal-line">
+            <span class="prompt">xurxox@cloud-terminal:~$</span> <span class="command">./sendmail.py --help</span>
+        </div>
+        <div class="output">
+Usage: sendmail.py [options]
+
+Interactive program to send emails to xurxox
+
+Available commands:
+  mail          Start email sending wizard
+  help          Show this help
+  clear         Clear terminal
+  exit          Exit
+        </div>
+
+        <div class="terminal-line input-line">
+            <span class="prompt">xurxox@cloud-terminal:~$</span>
+            <input type="text" id="terminal-input" class="terminal-input" autofocus placeholder="Type 'mail' to send a message...">
+        </div>
+    </div>
+</div>
+
+<!-- Modal to send email -->
+<div id="email-modal" class="email-modal">
+    <div class="email-modal-content">
+        <div class="email-header">
+            <span class="email-title">
+                <i class="fas fa-envelope"></i> New Message
+            </span>
+            <button class="close-modal" onclick="closeEmailModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form id="email-form" class="email-form">
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-user"></i> Your Name
+                </label>
+                <input type="text" id="sender-name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-envelope"></i> Your Email
+                </label>
+                <input type="email" id="sender-email" name="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-comment"></i> Message
+                </label>
+                <textarea id="message" name="message" required rows="6" placeholder="Write your message here..."></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-send">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+                <button type="button" class="btn-cancel" onclick="closeEmailModal()">
+                    Cancel
+                </button>
+            </div>
+        </form>
+        <div id="email-response" class="email-response"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalOutput = document.getElementById('terminal-output');
+    const emailModal = document.getElementById('email-modal');
+    const emailForm = document.getElementById('email-form');
+    const emailResponse = document.getElementById('email-response');
+
+    // Terminal commands
+    const commands = {
+        'help': () => {
+            return `Available commands:
+  pwd           Show current directory
+  ls            List files
+  cat info.txt  Display contact information
+  mail          Send an email
+  clear         Clear terminal
+  help          Show this help
+  exit          Close terminal`;
+        },
+        'pwd': () => '/home/xurxox/contact',
+        'ls': () => `email.sh  info.txt  sendmail.py`,
+        'ls -la': () => `drwxr-xr-x 2 xurxox xurxox 4096 Nov  5 14:30 .
+drwxr-xr-x 8 xurxox xurxox 4096 Nov  5 14:30 ..
+-rw-r--r-- 1 xurxox xurxox  220 Nov  5 14:30 email.sh
+-rw-r--r-- 1 xurxox xurxox  807 Nov  5 14:30 info.txt
+-rwxr-xr-x 1 xurxox xurxox 1024 Nov  5 14:30 sendmail.py`,
+        'cat info.txt': () => `╔════════════════════════════════════════════════════════════╗
+║              📧 CONTACT INFORMATION                        ║
+╠════════════════════════════════════════════════════════════╣
+║  Email:     xurxox@example.com                            ║
+║  GitHub:    github.com/xurxox                             ║
+║  LinkedIn:  linkedin.com/in/xurxox                        ║
+║  Location:  Vigo, Galicia, Spain                          ║
+╚════════════════════════════════════════════════════════════╝
+
+💡 Tip: Use the 'mail' command to send me a message`,
+        'mail': () => {
+            openEmailModal();
+            return 'Opening email client...';
+        },
+        'clear': () => {
+            clearTerminal();
+            return '';
+        },
+        'exit': () => 'To exit, close this browser tab or navigate to another page.',
+        './sendmail.py': () => 'Opening email client...\nUse "mail" command to start.',
+        './sendmail.py --help': () => `Usage: sendmail.py [options]
+
+Interactive program to send emails to xurxox
+
+Available commands:
+  mail          Start email sending wizard
+  help          Show this help
+  clear         Clear terminal
+  exit          Exit`
+    };
+
+    // Handle terminal input
+    terminalInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const command = this.value.trim();
+            
+            // Add command to terminal
+            const commandLine = document.createElement('div');
+            commandLine.className = 'terminal-line';
+            commandLine.innerHTML = `<span class="prompt">xurxox@cloud-terminal:~$</span> <span class="command">${command}</span>`;
+            
+            // Remove the input line temporarily
+            const inputLine = document.querySelector('.input-line');
+            terminalOutput.insertBefore(commandLine, inputLine);
+            
+            // Execute command
+            if (command) {
+                const output = executeCommand(command);
+                if (output) {
+                    const outputDiv = document.createElement('div');
+                    outputDiv.className = 'output';
+                    outputDiv.textContent = output;
+                    terminalOutput.insertBefore(outputDiv, inputLine);
+                }
+            }
+            
+            // Clear input
+            this.value = '';
+            
+            // Scroll to bottom
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+    });
+
+    function executeCommand(cmd) {
+        const command = cmd.toLowerCase().trim();
+        
+        if (commands[command]) {
+            return commands[command]();
+        } else {
+            return `bash: ${cmd}: command not found\nType 'help' for available commands`;
+        }
+    }
+
+    function clearTerminal() {
+        const inputLine = document.querySelector('.input-line');
+        terminalOutput.innerHTML = '';
+        terminalOutput.appendChild(inputLine);
+    }
+
+    function openEmailModal() {
+        emailModal.style.display = 'flex';
+        emailResponse.style.display = 'none';
+        emailForm.reset();
+    }
+
+    function closeEmailModal() {
+        emailModal.style.display = 'none';
+        emailResponse.style.display = 'none';
+    }
+
+    // Handle email form submission
+    emailForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('sender-name').value,
+            email: document.getElementById('sender-email').value,
+            message: document.getElementById('message').value
+        };
+        
+        try {
+            const response = await fetch('/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const data = await response.json();
+            
+            emailResponse.style.display = 'block';
+            if (data.success) {
+                emailResponse.className = 'email-response success';
+                emailResponse.innerHTML = `<i class="fas fa-check-circle"></i> ${data.message.replace(/\n/g, '<br>')}`;
+                
+                // Add success message to terminal
+                const outputDiv = document.createElement('div');
+                outputDiv.className = 'output success-msg';
+                outputDiv.textContent = '✓ Email sent successfully!';
+                const inputLine = document.querySelector('.input-line');
+                terminalOutput.insertBefore(outputDiv, inputLine);
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                
+                setTimeout(() => {
+                    closeEmailModal();
+                }, 3000);
+            } else {
+                emailResponse.className = 'email-response error';
+                emailResponse.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${data.message}`;
+            }
+        } catch (error) {
+            emailResponse.style.display = 'block';
+            emailResponse.className = 'email-response error';
+            emailResponse.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error sending email. Please try again.';
+        }
+    });
+
+    // Close modal when clicking outside
+    emailModal.addEventListener('click', function(e) {
+        if (e.target === emailModal) {
+            closeEmailModal();
+        }
+    });
+
+    // Auto-focus terminal input
+    terminalInput.focus();
+</script>
+{% endblock %}
