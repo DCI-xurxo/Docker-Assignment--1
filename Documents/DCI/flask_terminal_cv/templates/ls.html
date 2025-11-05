@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}ls ~/projects{% endblock %}
+{% block content %}
+<div class="terminal page-terminal">
+    <div class="terminal-header">
+        <div class="button red"></div>
+        <div class="button yellow"></div>
+        <div class="button green"></div>
+    </div>
+    <div class="terminal-body">
+        <p class="typed-text">
+$ ls -la ~/projects
+total 24
+drwxr-xr-x 6 user user 4096 Nov  5 14:30 .
+drwxr-xr-x 8 user user 4096 Nov  5 14:30 ..
+
+drwxr-xr-x 3 user user 4096 Nov  5 14:30 project-1/
+drwxr-xr-x 3 user user 4096 Nov  5 14:30 project-2/
+drwxr-xr-x 3 user user 4096 Nov  5 14:30 project-3/
+
+$ cat ~/projects/README.md
+
+Featured Projects:
+==================
+
+1. [Project Name 1]
+   Description of your project
+   Tech: Python, Flask, AWS
+   Link: github.com/YOUR_USERNAME/project1
+
+2. [Project Name 2]
+   Description of your project
+   Tech: Docker, Kubernetes, Terraform
+   Link: github.com/YOUR_USERNAME/project2
+
+3. [Project Name 3]
+   Description of your project
+   Tech: CI/CD, Jenkins, GitHub Actions
+   Link: github.com/YOUR_USERNAME/project3
+
+TODO: Update this with your actual projects
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/typing.js') }}"></script>
+{% endblock %}

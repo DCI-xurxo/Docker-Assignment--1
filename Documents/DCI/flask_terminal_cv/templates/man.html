@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}man contact{% endblock %}
+{% block content %}
+<div class="terminal page-terminal">
+    <div class="terminal-header">
+        <div class="button red"></div>
+        <div class="button yellow"></div>
+        <div class="button green"></div>
+    </div>
+    <div class="terminal-body">
+        <div id="terminal-animation">
+            <!-- Terminal animation will be inserted here by JavaScript -->
+        </div>
+        
+        <!-- Email form appears after animation -->
+        <div id="email-form-container" style="display: none;">
+            <form id="email-form" class="simple-form">
+                <div class="form-line">
+                    <span class="prompt">From:</span>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="off">
+                </div>
+                <div class="form-line">
+                    <span class="prompt">Message:</span>
+                    <textarea id="message" name="message" required placeholder="Your message here..." rows="5"></textarea>
+                </div>
+                <div class="form-line">
+                    <button type="submit" class="send-btn">Send Message</button>
+                </div>
+            </form>
+            
+            <div id="response-message" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+{% endblock %}
