@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Cloud Terminal CV{% endblock %}</title>
+    <title>{% block title %}Terminal CV{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -16,17 +15,18 @@
             <div class="topbar-title">
                 <span class="prompt-label">$</span>
                 <span class="prompt-text">
-                    <span id="prompt-typing">cloud-cv :: xurxox</span>
+                    <span id="prompt-typing">terminal-cv</span>
                     <span id="prompt-cursor" class="cursor blink" aria-hidden="true">▊</span>
                 </span>
             </div>
         </div>
         <nav class="topbar-nav">
-            <a href="{{ url_for('welcome') }}">welcome</a>
-            <a href="{{ url_for('home') }}">terminal</a>
-            <a href="{{ url_for('about') }}">about</a>
-            <a href="{{ url_for('projects') }}">projects</a>
-            <a href="{{ url_for('contact') }}">contact</a>
+            <a href="{{ url_for('index') }}">~</a>
+            <a href="{{ url_for('whoami') }}">whoami</a>
+            <a href="{{ url_for('ls') }}">ls ~/projects</a>
+            <a href="{{ url_for('work') }}">ls ~/workhistory</a>
+            <a href="{{ url_for('studies') }}">ls ~/studies</a>
+            <a href="{{ url_for('man') }}">man contact</a>
         </nav>
     </header>
 
@@ -34,26 +34,6 @@
         {% block content %}{% endblock %}
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const boxes = document.querySelectorAll("[data-terminal-typed]");
-            boxes.forEach(box => {
-                const full = box.textContent.trim();
-                box.textContent = "";
-                let i = 0;
-                const speed = 25;
-                setTimeout(() => {
-                    const t = setInterval(() => {
-                        box.textContent = full.slice(0, i);
-                        i++;
-                        if (i > full.length) clearInterval(t);
-                    }, speed);
-                }, 250);
-            });
-        });
-    </script>
-
-    {% block header_script %}{% endblock %}
-    {% block extra_scripts %}{% endblock %}
+    {% block scripts %}{% endblock %}
 </body>
 </html>

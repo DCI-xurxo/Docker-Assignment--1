@@ -6,12 +6,5 @@ __pycache__/
 .DS_Store
 .env
 *.swp
-*.swo
 .vscode/
 .idea/
-instance/
-.pytest_cache/
-htmlcov/
-dist/
-build/
-*.egg-info/
