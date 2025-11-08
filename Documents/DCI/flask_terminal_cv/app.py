@@ -18,6 +18,14 @@ def ls():
 def man():
     return render_template("man.html")
 
+@app.route("/work")
+def work():
+    return render_template("work.html")
+
+@app.route("/studies")
+def studies():
+    return render_template("studies.html")
+
 @app.route("/send-email", methods=["POST"])
 def send_email():
     """Endpoint to send email - integrate your email service here"""

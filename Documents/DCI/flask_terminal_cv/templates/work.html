@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}ls ~/projects{% endblock %}
+{% block title %}ls ~/workhistory{% endblock %}
 {% block content %}
 <div class="terminal page-terminal">
     <div class="terminal-header">
@@ -14,52 +14,66 @@
         
         <!-- Content appears after animation -->
         <div id="content-container" style="display: none;">
-            <pre class="projects-content">
+            <pre class="work-content">
 ╔════════════════════════════════════════════════════════════╗
-║                    📂 PROJECTS DIRECTORY                   ║
+║                    💼 WORK HISTORY                         ║
 ╚════════════════════════════════════════════════════════════╝
 
-$ ls -la ~/projects
-total 24
-drwxr-xr-x 6 user user 4096 Nov  6 10:30 .
-drwxr-xr-x 8 user user 4096 Nov  6 10:30 ..
-
-drwxr-xr-x 3 user user 4096 Nov  6 10:30 project-1/
-drwxr-xr-x 3 user user 4096 Nov  6 10:30 project-2/
-drwxr-xr-x 3 user user 4096 Nov  6 10:30 project-3/
-
+[CURRENT POSITION]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Position:   Cloud Engineer
+Company:    Your Company Name
+Location:   Germany 🇩🇪
+Period:     2024 - Present
 
-[PROJECT 1]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name:        Project Name 1
-Description: Description of your project goes here
-Tech Stack:  Python, Flask, AWS
-Repository:  github.com/YOUR_USERNAME/project1
-Status:      ✓ Active
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Responsibilities:
+• Design and implement cloud infrastructure on AWS
+• Automate deployment processes with Terraform and Ansible
+• Maintain CI/CD pipelines using Jenkins and GitHub Actions
+• Monitor and optimize system performance
+• Lead infrastructure migration projects
 
-
-[PROJECT 2]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name:        Project Name 2
-Description: Description of your project goes here
-Tech Stack:  Docker, Kubernetes, Terraform
-Repository:  github.com/YOUR_USERNAME/project2
-Status:      ✓ Active
+Technologies:
+AWS, Docker, Kubernetes, Terraform, Python, Jenkins, Prometheus
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-[PROJECT 3]
+[PREVIOUS POSITION]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name:        Project Name 3
-Description: Description of your project goes here
-Tech Stack:  CI/CD, Jenkins, GitHub Actions
-Repository:  github.com/YOUR_USERNAME/project3
-Status:      ✓ Active
+Position:   Junior DevOps Engineer
+Company:    Previous Company
+Location:   Spain
+Period:     2023 - 2024
+
+Responsibilities:
+• Deployed and managed containerized applications
+• Implemented monitoring solutions with Grafana
+• Automated routine tasks with Bash and Python scripts
+• Collaborated with development teams on CI/CD
+
+Technologies:
+Docker, Linux, Python, Bash, Git, GitHub Actions
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-TODO: Update this with your actual projects
+
+[INTERNSHIP / ENTRY LEVEL]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Position:   IT Support / Junior Sysadmin
+Company:    Company Name
+Location:   Spain
+Period:     2022 - 2023
+
+Responsibilities:
+• Linux server administration and maintenance
+• User support and troubleshooting
+• Network configuration and monitoring
+• Documentation of processes and procedures
+
+Technologies:
+Linux (Ubuntu, CentOS), Networking, Bash scripting
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TODO: Update this with your actual work history
             </pre>
         </div>
     </div>

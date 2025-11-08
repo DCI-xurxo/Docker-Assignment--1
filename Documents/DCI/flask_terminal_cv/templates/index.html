@@ -3,6 +3,12 @@
 {% block content %}
 <section class="hero">
     <div class="hero-content">
+        <!-- Profile Photo Circle -->
+        <div class="profile-photo">
+            <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Photo">
+            <!-- TODO: Add your profile photo as static/profile.jpg -->
+        </div>
+        
         <h1>Hi, I'm [Your Name] 👋</h1>
         <p>Cloud / DevOps Engineer. This is my CV in terminal mode.</p>
         

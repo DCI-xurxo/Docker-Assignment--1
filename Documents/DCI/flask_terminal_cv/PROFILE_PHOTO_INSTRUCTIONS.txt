@@ -1,0 +1,24 @@
+PROFILE PHOTO INSTRUCTIONS
+==========================
+
+1. Add your profile photo to: static/profile.jpg
+
+2. Recommended specifications:
+   - Format: JPG or PNG
+   - Size: 300x300 pixels minimum
+   - Square aspect ratio (1:1)
+   - File name: profile.jpg (or update the filename in index.html)
+
+3. The photo will be displayed as:
+   - 120px diameter circle
+   - With AWS orange border
+   - Top left of the welcome page
+
+4. If you don't add a photo, the image will show as broken.
+   You can either:
+   - Add your photo as static/profile.jpg
+   - Remove the profile-photo div from index.html
+   - Or use a placeholder image
+
+Example placeholder command (if needed):
+You can use any photo or create a simple colored circle as placeholder.
