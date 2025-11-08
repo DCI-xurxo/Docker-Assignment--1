@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Hi, I'm [Your Name] 👋</h1>
+        <p>Cloud / DevOps Engineer. This is my CV in terminal mode.</p>
+        
+        <!-- TODO: Update these links with your real URLs -->
+        <div class="social-links">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="social-btn">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="social-btn">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="/static/cv.pdf" download class="social-btn">
+                <i class="fas fa-download"></i>
+                <span>CV PDF</span>
+            </a>
+            <a href="https://www.credly.com/users/YOUR_CREDLY" target="_blank" class="social-btn">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+            </a>
+        </div>
+        
+        <div class="hero-actions">
+            <a href="{{ url_for('whoami') }}" class="btn-primary">View Profile</a>
+            <a href="#projects" class="btn-secondary">View Projects</a>
+        </div>
+    </div>
+    <div class="hero-panel">
+        <div class="terminal page-terminal">
+            <div class="terminal-header">
+                <div class="button red"></div>
+                <div class="button yellow"></div>
+                <div class="button green"></div>
+            </div>
+            <div class="terminal-body">
+                <p class="typed-text">
+$ whoami
+your-username
+
+$ pwd
+/home/your-username
+
+$ echo $ROLE
+cloud-engineer
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section - TODO: Update with your real projects -->
+<section class="projects-section" id="projects">
+    <h2 class="section-title">
+        <i class="fas fa-folder-open"></i> Featured Projects
+    </h2>
+    <div class="projects-grid">
+        
+        <!-- Project 1 - TODO: Update -->
+        <div class="project-card">
+            <div class="project-header">
+                <i class="fas fa-terminal"></i>
+                <h3>Project Name 1</h3>
+            </div>
+            <p class="project-description">
+                Description of your project goes here.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+            </div>
+            <a href="https://github.com/YOUR_USERNAME/project1" target="_blank" class="project-link">
+                View on GitHub <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <!-- Project 2 - TODO: Update -->
+        <div class="project-card">
+            <div class="project-header">
+                <i class="fab fa-aws"></i>
+                <h3>Project Name 2</h3>
+            </div>
+            <p class="project-description">
+                Description of your project goes here.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Terraform</span>
+            </div>
+            <a href="https://github.com/YOUR_USERNAME/project2" target="_blank" class="project-link">
+                View on GitHub <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <!-- Project 3 - TODO: Update -->
+        <div class="project-card">
+            <div class="project-header">
+                <i class="fab fa-docker"></i>
+                <h3>Project Name 3</h3>
+            </div>
+            <p class="project-description">
+                Description of your project goes here.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Kubernetes</span>
+            </div>
+            <a href="https://github.com/YOUR_USERNAME/project3" target="_blank" class="project-link">
+                View on GitHub <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 Your Name | Cloud Engineer</p>
+    <p class="footer-cmd">$ whoami && echo "building the cloud ☁️"</p>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/typing.js') }}"></script>
+{% endblock %}

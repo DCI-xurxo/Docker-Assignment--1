@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}ls ~/studies{% endblock %}
+{% block content %}
+<div class="terminal page-terminal">
+    <div class="terminal-header">
+        <div class="button red"></div>
+        <div class="button yellow"></div>
+        <div class="button green"></div>
+    </div>
+    <div class="terminal-body">
+        <div id="terminal-animation">
+            <!-- Terminal animation will be inserted here by JavaScript -->
+        </div>
+        
+        <!-- Content appears after animation -->
+        <div id="content-container" style="display: none;">
+            <pre class="studies-content">
+╔════════════════════════════════════════════════════════════╗
+║                    🎓 EDUCATION & STUDIES                  ║
+╚════════════════════════════════════════════════════════════╝
+
+[HIGHER EDUCATION]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Degree:     Bachelor's in Computer Science / IT
+University: Your University Name
+Location:   City, Country
+Period:     2018 - 2022
+
+Focus Areas:
+• Systems Administration
+• Networking and Security
+• Software Development
+• Database Management
+
+Final Project: Infrastructure Automation with Terraform
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[CERTIFICATIONS]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ AWS Certified Solutions Architect - Associate
+  Issued: 2024
+  ID: View on Credly
+
+✓ AWS Certified Cloud Practitioner
+  Issued: 2023
+  ID: View on Credly
+
+✓ Certified Kubernetes Administrator (CKA)
+  Issued: 2024
+  ID: View on Credly
+
+✓ HashiCorp Certified: Terraform Associate
+  Issued: 2023
+  ID: View on Credly
+
+View all certifications:
+→ https://www.credly.com/users/YOUR_CREDLY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[COURSES & TRAINING]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Docker and Kubernetes: The Complete Guide (Udemy)
+  2023 - 40 hours
+
+• AWS Solutions Architect Bootcamp
+  2024 - 60 hours
+
+• Linux System Administration (LPI)
+  2022 - 30 hours
+
+• Python for DevOps and Automation
+  2023 - 25 hours
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[LANGUAGES]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Spanish:  Native
+English:  Professional Working Proficiency (B2/C1)
+German:   Intermediate (B1)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TODO: Update this with your actual education and certifications
+            </pre>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/unzip.js') }}"></script>
+{% endblock %}

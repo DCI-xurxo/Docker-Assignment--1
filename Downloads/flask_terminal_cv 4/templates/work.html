@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}ls ~/workhistory{% endblock %}
+{% block content %}
+<div class="terminal page-terminal">
+    <div class="terminal-header">
+        <div class="button red"></div>
+        <div class="button yellow"></div>
+        <div class="button green"></div>
+    </div>
+    <div class="terminal-body">
+        <div id="terminal-animation">
+            <!-- Terminal animation will be inserted here by JavaScript -->
+        </div>
+        
+        <!-- Content appears after animation -->
+        <div id="content-container" style="display: none;">
+            <pre class="work-content">
+╔════════════════════════════════════════════════════════════╗
+║                    💼 WORK HISTORY                         ║
+╚════════════════════════════════════════════════════════════╝
+
+[CURRENT POSITION]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Position:   Cloud Engineer
+Company:    Your Company Name
+Location:   Germany 🇩🇪
+Period:     2024 - Present
+
+Responsibilities:
+• Design and implement cloud infrastructure on AWS
+• Automate deployment processes with Terraform and Ansible
+• Maintain CI/CD pipelines using Jenkins and GitHub Actions
+• Monitor and optimize system performance
+• Lead infrastructure migration projects
+
+Technologies:
+AWS, Docker, Kubernetes, Terraform, Python, Jenkins, Prometheus
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[PREVIOUS POSITION]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Position:   Junior DevOps Engineer
+Company:    Previous Company
+Location:   Spain
+Period:     2023 - 2024
+
+Responsibilities:
+• Deployed and managed containerized applications
+• Implemented monitoring solutions with Grafana
+• Automated routine tasks with Bash and Python scripts
+• Collaborated with development teams on CI/CD
+
+Technologies:
+Docker, Linux, Python, Bash, Git, GitHub Actions
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[INTERNSHIP / ENTRY LEVEL]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Position:   IT Support / Junior Sysadmin
+Company:    Company Name
+Location:   Spain
+Period:     2022 - 2023
+
+Responsibilities:
+• Linux server administration and maintenance
+• User support and troubleshooting
+• Network configuration and monitoring
+• Documentation of processes and procedures
+
+Technologies:
+Linux (Ubuntu, CentOS), Networking, Bash scripting
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TODO: Update this with your actual work history
+            </pre>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/unzip.js') }}"></script>
+{% endblock %}

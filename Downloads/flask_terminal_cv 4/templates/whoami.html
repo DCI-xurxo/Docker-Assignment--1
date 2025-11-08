@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}whoami{% endblock %}
+{% block content %}
+<div class="terminal page-terminal">
+    <div class="terminal-header">
+        <div class="button red"></div>
+        <div class="button yellow"></div>
+        <div class="button green"></div>
+    </div>
+    <div class="terminal-body">
+        <p class="typed-text">
+$ whoami
+your-username
+
+$ cat /etc/profile
+Hi, I'm [Your Name] 👨‍💻
+Cloud / DevOps Engineer
+Passionate about automation and infrastructure
+
+$ cat skills.txt
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Languages:  Python, Bash, JavaScript
+Cloud:      AWS (S3, Lambda, EC2, RDS)
+DevOps:     Docker, Kubernetes, CI/CD
+IaC:        Terraform, Ansible
+Monitoring: Prometheus, Grafana
+OS:         Linux (Ubuntu, CentOS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$ cat location.txt
+Location: Germany 🇩🇪
+
+$ ls -l certifications/
+View all certifications at:
+https://www.credly.com/users/YOUR_CREDLY
+
+$ echo $INTERESTS
+Cloud architecture + Infrastructure automation
+Terminal aesthetics + Minimalist design
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/typing.js') }}"></script>
+{% endblock %}
