@@ -3,10 +3,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const animationContainer = document.getElementById('terminal-animation');
     const contentContainer = document.getElementById('content-container');
     
+    // If elements don't exist, exit early
+    if (!animationContainer || !contentContainer) {
+        console.log('Unzip animation elements not found, skipping animation');
+        return;
+    }
+    
     // Determine which page we're on
     const pageTitle = document.title;
     const pageURL = window.location.pathname;
     let filename = 'data.tar.gz';
+    
+    console.log('Page title:', pageTitle);
+    console.log('Page URL:', pageURL);
     
     if (pageTitle.includes('Home') || pageURL === '/' || pageURL === '/index') {
         filename = 'system.tar.gz';
@@ -19,6 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (pageTitle.includes('projects') || pageURL.includes('/ls')) {
         filename = 'projects.tar.gz';
     }
+    
+    console.log('Using filename:', filename);
     
     // Animation sequence
     const animationSteps = [

@@ -8,40 +8,53 @@
         <div class="button green"></div>
     </div>
     <div class="terminal-body">
-        <p class="typed-text">
+        <div id="terminal-animation">
+            <!-- Terminal animation will be inserted here by JavaScript -->
+        </div>
+        
+        <!-- Content appears after animation -->
+        <div id="content-container" style="display: none;">
+            <pre class="whoami-content">
+
 $ whoami
-your-username
+xurxox
 
 $ cat /etc/profile
-Haye, I am Xurxo
-Cloud / DevOps Engineer student
-Passionate about automation and infrastructure in the cloud
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name:        Xurxo
+Role:        Cloud / DevOps Engineer
+Passion:     Automation and cloud infrastructure student
+Location:    Berlin, Germany
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 $ cat skills.txt
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Languages:  Python, Kotlyn, Java
-Cloud:      AWS (S3, Lambda, EC2, RDS)
-DevOps:     Docker, Jenkins, CI/CD
-IaC:        Terraform
-Monitoring: Prometheus, Grafana
-DB:         Oracle, PostgreSQL
-OS:         Linux (Ubuntu, CentOS)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-$ cat location.txt
-Location: Berlin, Germany
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TECHNICAL SKILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Languages:   Python, Bash, JavaScript
+Cloud:       AWS (S3, Lambda, EC2, RDS, CloudFormation)
+DevOps:      Docker, Kubernetes, CI/CD, Jenkins
+IaC:         Terraform, Ansible, CloudFormation
+Monitoring:  Prometheus, Grafana, CloudWatch
+OS:          Linux (Ubuntu, CentOS, Amazon Linux)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 $ ls -l certifications/
 View all certifications at:
-https://www.credly.com/users/xurxo-astorgano
+→ https://www.credly.com/users/xurxo-astorgano
 
 $ echo $INTERESTS
-Cloud architecture + Infrastructure automation
-        </p>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TODO: Update this with your actual information
+            </pre>
+        </div>
     </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/typing.js') }}"></script>
+<script src="{{ url_for('static', filename='js/unzip.js') }}"></script>
 {% endblock %}
