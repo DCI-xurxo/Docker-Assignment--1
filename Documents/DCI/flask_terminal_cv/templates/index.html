@@ -6,7 +6,6 @@
         <!-- Profile Photo Circle -->
         <div class="profile-photo">
             <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Photo">
-            <!-- TODO: Add your profile photo as static/profile.jpg -->
         </div>
         
         <h1>Hi, I'm Xurxo 👋</h1>
@@ -14,11 +13,11 @@
         
         <!-- TODO: Update these links with your real URLs -->
         <div class="social-links">
-            <a href="https://github.com/Xurxxo" target="_blank" class="social-btn">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="social-btn">
                 <i class="fab fa-github"></i>
                 <span>GitHub</span>
             </a>
-            <a href="https://www.linkedin.com/in/xurxoastorgano/" target="_blank" class="social-btn">
+            <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="social-btn">
                 <i class="fab fa-linkedin"></i>
                 <span>LinkedIn</span>
             </a>
@@ -26,7 +25,7 @@
                 <i class="fas fa-download"></i>
                 <span>CV PDF</span>
             </a>
-            <a href="https://www.credly.com/users/xurxo-astorgano/" target="_blank" class="social-btn">
+            <a href="https://www.credly.com/users/YOUR_CREDLY" target="_blank" class="social-btn">
                 <i class="fas fa-certificate"></i>
                 <span>Certificates</span>
             </a>
@@ -45,16 +44,25 @@
                 <div class="button green"></div>
             </div>
             <div class="terminal-body">
-                <p class="typed-text">
-$ whoami
-your-username
+                <pre class="home-terminal-content">
+   ,     #_
+  ~\_  ####_        Amazon Linux 2023
+ ~~  \_#####\
+~~     \###|       https://aws.amazon.com/linux/amazon-linux-2023
+ ~~       \#/ ___
+  ~~       V~' '->
+   ~~~         /
+     ~~._.   _/
+        _/ _/
+      _/m/'
 
-$ pwd
-/home/your-username
-
-$ echo $ROLE
-cloud-engineer
-                </p>
+Last login: Fri Nov  8 19:45:22 2024 from 192.168.1.100
+[ec2-user@ip-172-31-24-15 ~]$ whoami
+xurxo
+[ec2-user@ip-172-31-24-15 ~]$ echo $ROLE
+cloud-devops-engineer
+[ec2-user@ip-172-31-24-15 ~]$ 
+                </pre>
             </div>
         </div>
     </div>
@@ -125,10 +133,7 @@ cloud-engineer
 </section>
 
 <footer class="footer">
+    <p>© 2025 Your Name | Cloud Engineer</p>
     <p class="footer-cmd">$ whoami && echo "building the cloud ☁️"</p>
 </footer>
-{% endblock %}
-
-{% block scripts %}
-<script src="{{ url_for('static', filename='js/typing.js') }}"></script>
 {% endblock %}

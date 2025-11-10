@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const pageURL = window.location.pathname;
     let filename = 'data.tar.gz';
     
-    if (pageTitle.includes('workhistory') || pageURL.includes('/work')) {
+    if (pageTitle.includes('Home') || pageURL === '/' || pageURL === '/index') {
+        filename = 'system.tar.gz';
+    } else if (pageTitle.includes('whoami') || pageURL.includes('/whoami')) {
+        filename = 'profile.tar.gz';
+    } else if (pageTitle.includes('workhistory') || pageURL.includes('/work')) {
         filename = 'workhistory.tar.gz';
     } else if (pageTitle.includes('studies') || pageURL.includes('/studies')) {
         filename = 'studies.tar.gz';

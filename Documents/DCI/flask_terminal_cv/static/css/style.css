@@ -242,11 +242,20 @@ body {
 
 /* Hero terminal - fixed height, no growth */
 .hero-panel .terminal-body {
-    padding: 12px;
-    min-height: 200px;
-    max-height: 200px;
-    height: 200px;
-    overflow: hidden;
+    padding: 16px;
+    min-height: 420px;
+    max-height: 420px;
+    height: 420px;
+    overflow-y: auto;
+}
+
+/* Home terminal specific styling */
+.home-terminal-content {
+    color: var(--text);
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    white-space: pre;
 }
 
 /* Page terminals - consistent padding */
@@ -505,7 +514,8 @@ body {
 
 .work-content,
 .studies-content,
-.projects-content {
+.projects-content,
+.whoami-content {
     color: var(--text);
     font-family: 'Fira Mono', monospace;
     font-size: 0.85rem;
